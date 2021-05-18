@@ -9,13 +9,13 @@ NOCOLOR='\033[0m' # DEFAULT FONT
 
 dem=0
 
-printf "${LGREEN} Dem Packet Node:" "\n\n"
+printf "${LGREEN} Dem Packet Node:${WHITE}" "\n\n"
 for(( i=1; i <=30; i++ ))
 do
 	mix='nym-mixnode'
 	nymmixnode=${mix}${i}
   printf '%s\n' "${nym}"
-  printf '%s\n' "${i} : $(journalctl -u ${nymmixnode} -o cat | grep "Since startup mixed" | tail -1)"
+  printf '%s\n' "${i} : $(journalctl -u ${nymmixnode} -o cat | grep -i "mixed" | tail -1)"
 done
 printf "\n\n"
 printf "\n\n"
